@@ -14,9 +14,9 @@
     $post_ids= array( 17, 139, 121, 111, 108 );
 
    $args = array(  
-       'post__in' => array( 121 , 111 , 108 ),
+       'post__in' =>$post_ids,
   'orderby' =>'post__in',
-  'post_type' => 'post'
+  'post_type' => 'post' 
     );
 
     $loop = new WP_Query( $args ); 
