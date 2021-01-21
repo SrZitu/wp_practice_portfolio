@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Custom Query
+ * Template Name: Custom Query Wpquery
  */
 ?>
 <?php get_header(); ?>
@@ -21,7 +21,9 @@
 
     $loop = new WP_Query( $args ); 
         
-    while ( $loop->have_posts() ) : $loop->the_post(); ?>
+    while ( $loop->have_posts() ) {
+      $loop->the_post(); ?>
+    }
       <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h2></a>
       <?php
     endwhile;
