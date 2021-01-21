@@ -29,6 +29,7 @@ $p= get_posts( array(
         <?php
     }
     wp_reset_postdata();
+    
     ?>
 
 
