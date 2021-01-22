@@ -11,11 +11,12 @@
     <?php
     $paged= (get_query_var('paged')) ? get_query_var('paged') : 1;
     $posts_per_page = 2;
-    $post_ids= array( 17, 139, 121, 111, 108 );
+   // $post_ids= array( 17, 139, 121, 111, 108 );
 
    $p = array(  
-     'posts_per_page' => $posts_per_page,
-       'post__in' =>$post_ids,
+     'category_name' => 'new',
+   'posts_per_page' => $posts_per_page,
+  'post__in' =>$post_ids,
   'orderby' =>'post__in',
   'paged' => $paged
     );
@@ -39,7 +40,7 @@
                 //dynamic pagination
                echo paginate_links( array(
                  'total'=>$newpost->max_num_pages,
-                 'current'=> $pagedhttps://github.com/SrZitu/wp_practice_portfolio
+                 'current'=> $paged
                 
 
                ) );
