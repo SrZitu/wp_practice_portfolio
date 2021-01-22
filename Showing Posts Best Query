@@ -1,0 +1,35 @@
+<?php
+/**
+ * Template Name: Testing Blog
+ */
+?>
+<?php get_header(); ?>
+
+ 
+
+
+
+    <?php 
+     $args = array(
+        'post_type' => 'post'
+    );
+    $loop = new WP_Query( $args ) ?>
+     <div class="row">
+    <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+   
+    
+    <div class="col-lg-4">
+    
+     <h2><?php the_title(); ?></h2>
+            <?php the_post_thumbnail() ?>
+            <?php the_content(); ?>
+      </div>
+     
+    <?php endwhile; 
+    wp_reset_query(); ?>
+     </div>
+
+
+
+
+<?php get_footer(); ?>
