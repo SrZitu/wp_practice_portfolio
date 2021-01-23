@@ -13,37 +13,35 @@
     $posts_per_page = 2;
     $post_ids= array( 17, 139, 121, 111, 108 );
 
-   $args = array(  
+   $p = array(  
+     'posts_per_page' => $posts_per_page,
        'post__in' =>$post_ids,
   'orderby' =>'post__in',
-  'post_type' => 'post' 
+  'paged' => $paged
     );
 
-    $loop = new WP_Query( $args ); 
+    $newpost = new WP_Query($p); 
         
-    while ( $loop->have_posts() ) {
-      $loop->the_post(); ?>
-    }
+    while ( $newpost->have_posts() ) {
+      $newpost->the_post();
+       ?>
       <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h2></a>
       <?php
-    endwhile;
-
+    }
     wp_reset_query(); 
-
 ?>
     
-    ?>
-
-
-
     <div class="container post-pagination">
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-8">
+            
+            <div class="col-md-12">
                 <?php
                 //dynamic pagination
                echo paginate_links( array(
-                 'total'=>ceil(count( $post_ids ) / $posts_per_page)
+                 'total'=>$newpost->max_num_pages,
+                 'current'=> $pagedhttps://github.com/SrZitu/wp_practice_portfolio
+                
+
                ) );
                 ?>
             </div>
