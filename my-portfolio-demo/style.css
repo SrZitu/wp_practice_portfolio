@@ -53,3 +53,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
+.page-id-149 .test-blog img {
+  width: 100% !important ;
+  height: 200px !important;
+}

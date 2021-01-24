@@ -11,16 +11,36 @@
     <?php
     $paged= (get_query_var('paged')) ? get_query_var('paged') : 1;
     $posts_per_page = 2;
-    $post_ids= array( 17, 139, 121, 111, 108 );
+   // $post_ids= array( 17, 139, 121, 111, 108 );
 
-   $p = array(  
-     'posts_per_page' => $posts_per_page,
-       'post__in' =>$post_ids,
-  'orderby' =>'post__in',
-  'paged' => $paged
+  
+
+$args = array(
+    // 'post_type' => 'post',
+    'posts_per_page'=>$posts_per_page,
+    'paged'=>$paged,
+    // 'tax_query' => array(
+    //     'relation' => 'OR',
+    //     array(
+    //         'taxonomy' => 'category',
+    //         'field'    => 'slug',
+    //         'terms'    => array('new','one more')
+          
+    //     ),
+    //     array(
+    //         'taxonomy' => 'post_tag',
+    //         'field'    => 'slug',
+    //         'terms'    => array('special')
+            
+    //     ),
+    //   )
+    
+      'monthnum'=>1,
+      'year'=>2021,
+      'day'   => 22,
+    'post_status'=>'publish'
     );
-
-    $newpost = new WP_Query($p); 
+    $newpost = new WP_Query($args); 
         
     while ( $newpost->have_posts() ) {
       $newpost->the_post();
@@ -39,7 +59,7 @@
                 //dynamic pagination
                echo paginate_links( array(
                  'total'=>$newpost->max_num_pages,
-                 'current'=> $pagedhttps://github.com/SrZitu/wp_practice_portfolio
+                 'current'=> $paged
                 
 
                ) );
