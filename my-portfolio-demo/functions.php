@@ -290,5 +290,19 @@ function srz_register_my_cpts() {
 
 	register_post_type( "book", $args );
 }
-
 add_action( 'init', 'srz_register_my_cpts' );
+
+//Action Hook practice
+function before_blog_titlefun(){
+echo "<h1>Our All post means the blog post</h1>";
+}
+add_action("before_blog_title","before_blog_titlefun");
+
+function after_blog_titlefun(){
+echo "<h4>After titlte</h4>";
+}
+
+add_action("after_blog_title","after_blog_titlefun");
+
+
+
